@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Conta</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="/conta">👤 Conta</a>
+<a href="/comprar">💳 Comprar creditos</a>
+<a href="/reservar"> 📃 Reservar produtos</a>
+<a href="/logout">🚪 Sair</a>
+
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>{{nome}}</h2>
+
+<div class="creditos">
+{{creditos}} créditos
+</div>
+
+<p>Turma {{turma}}</p>
+
+</div>
+
+<h3>📜 Histórico</h3>
+
+<div class="history">
+
+<ul>
+
+{% for item in historico[:3] %}
+
+<li>
+{{item[0]}} créditos - {{item[1]}}
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% if historico|length > 3 %}
+
+<button onclick="toggleHistorico()" class="btn-historico">
+Ver histórico completo
+</button>
+
+<div id="historico-completo" style="display:none">
+
+<ul>
+
+{% for item in historico[3:] %}
+
+<li>
+{{item[0]}} créditos - {{item[1]}}
+</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="menu">
+
+<div class="dashboard-extra">
+
+<div class="suporte-box">
+
+<h3>🛠 Suporte</h3>
+
+<p>Encontrou algum problema?</p>
+
+<a href="/suporte" class="btn-suporte">
+Entrar em contato com o suporte
+</a>
+
+</div>
+
+<div class="reservas-box">
+
+<h3>📦 Suas Reservas</h3>
+
+<div class="reservas-container">
+
+{% if reservas %}
+
+{% for r in reservas %}
+
+<div class="reserva-card">
+
+<div class="reserva-info">
+<strong>{{r[0]}}</strong><br>
+{{r[1]}} unidade(s)
+</div>
+
+<div class="reserva-status">
+
+{% if r[2] == "pendente" %}
+<span class="status pendente">⏳ Aguardando confirmação</span>
+
+{% elif r[2] == "confirmado" %}
+<span class="status confirmado">✅ Confirmado</span>
+
+{% elif r[2] == "entregue" %}
+<span class="status entregue">📦 Entregue</span>
+{% endif %}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<p>Você ainda não fez nenhuma reserva.</p>
+
+{% endif %}
+
+</div>
+
+<script>
+
+function toggleHistorico(){
+
+var div = document.getElementById("historico-completo")
+
+if(div.style.display === "none"){
+div.style.display = "block"
+}else{
+div.style.display = "none"
+}
+
+}
+
+</script>

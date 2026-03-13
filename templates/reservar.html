@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Reservar Produtos</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+<a href="/dashboard">📱 Menu</a>
+<a href="/comprar">💳 Comprar créditos</a>
+<a href="/reservar">📃 Reservar produtos</a>
+</div>
+
+<div class="container">
+
+<h2 class="titulo">🍦 Produtos da Semana</h2>
+
+<div class="produtos-grid">
+
+{% for produto in produtos %}
+
+<div class="produto-card">
+
+<h3>{{produto[1]}}</h3>
+
+<div class="preco">
+R$ {{produto[2]}}
+</div>
+
+<form action="/fazer_reserva" method="post">
+
+<input type="hidden" name="produto_id" value="{{produto[0]}}">
+
+<input
+type="number"
+name="quantidade"
+value="1"
+min="1"
+class="input-qtd"
+>
+
+<button class="btn-reservar">
+Reservar
+</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>

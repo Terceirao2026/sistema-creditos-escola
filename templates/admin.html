@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Painel Admin</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6fb;
+padding:20px;
+}
+
+table{
+width:100%;
+border-collapse: collapse;
+background:white;
+}
+
+th, td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#4f46e5;
+color:white;
+}
+
+input{
+padding:6px;
+margin:3px;
+width:80px;
+}
+
+button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:4px;
+cursor:pointer;
+}
+
+button:hover{
+background:#43a047;
+}
+
+.menu-admin{
+margin-bottom:20px;
+}
+
+.botao{
+background:#6366f1;
+color:white;
+padding:8px 14px;
+border-radius:8px;
+text-decoration:none;
+margin-right:10px;
+font-weight:bold;
+}
+
+.botao:hover{
+background:#4f46e5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="menu-admin">
+
+<a href="/admin_comprovantes" class="botao">
+📄 Ver comprovantes
+</a>
+
+<a href="/comprovantes" class="botao">
+🧾 Comprovantes
+</a>
+
+<a href="/admin_tickets" class="botao">
+🎫 Tickets Suporte
+</a>
+
+<a href="/admin_suporte_publico" class="botao">
+🎫 Tickets Públicos
+</a>
+
+<a href="/login" class="botao">
+🔑 Ir para Login
+</a>
+
+<a href="/admin_reservas" class="botao">
+📦 Ver Reservas
+</a>
+
+<a href="/admin_produtos" class="botao">
+📦 Produtos da Semana
+</a>
+
+</div>
+
+<h2>Painel Admin</h2>
+
+<form method="GET">
+
+<input type="text" name="buscar" placeholder="Buscar aluno">
+
+<button type="submit">Buscar</button>
+
+</form>
+
+<br>
+
+<table>
+
+<tr>
+
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Turma</th>
+<th>Créditos</th>
+<th>Adicionar</th>
+<th>Remover</th>
+<th>Excluir Conta</th>
+<th>Histórico</th>
+<th>Senha</th>
+</tr>
+
+</tr>
+
+{% for usuario in usuarios %}
+
+
+<tr>
+
+<td>{{usuario[0]}}</td>
+<td>{{usuario[1]}}</td>
+<td>{{usuario[2]}}</td>
+<td>{{ '%.2f' % (usuario[3]|float) }}</td>
+
+<td>
+
+
+<form action="/adicionar_credito" method="POST">
+
+<input type="hidden" name="usuario_id" value="{{usuario[0]}}">
+
+<input type="number" name="valor" placeholder="valor" required>
+
+<input type="text" name="motivo" placeholder="motivo">
+
+<br>
+
+<button type="submit">Adicionar</button>
+
+</form>
+
+</td>
+
+<td>
+    
+
+<form action="/remover_credito" method="POST">
+
+<input type="hidden" name="usuario_id" value="{{usuario[0]}}">
+
+<input type="number" name="valor" placeholder="valor" required>
+
+<input type="text" name="motivo" placeholder="motivo">
+
+<br>
+
+<button type="submit">Remover</button>
+
+</form>
+
+</td>
+
+<td>
+
+<form action="/excluir_usuario" method="post">
+<input type="hidden" name="usuario_id" value="{{usuario[0]}}">
+
+<button style="background:red;color:white;border:none;padding:6px;border-radius:6px"
+onclick="return confirm('Tem certeza que deseja excluir esta conta?')">
+
+🗑 Excluir Conta
+
+</button>
+
+</form>
+
+</td>
+
+<td>
+
+<a href="/historico/{{usuario[0]}}">
+
+<button style="background:#3b82f6;color:white;border:none;padding:6px;border-radius:6px">
+
+📜 Ver Histórico
+
+</button>
+
+</a>
+
+</td>
+
+<td>{{usuario[4]}}</td>
+</tr>
+
+
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

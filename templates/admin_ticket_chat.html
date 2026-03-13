@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Chat Ticket</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<a href="/fechar_ticket/{{ticket_id}}">
+<button style="background:red">Fechar ticket</button>
+</a>
+
+</head>
+
+<body>
+
+<h2 style="text-align:center">🎫 Ticket {{ticket_id}}</h2>
+
+{% if fechamento and fechamento == 1 %}
+
+<div style="
+background:#fee2e2;
+padding:15px;
+border-radius:10px;
+margin:10px auto;
+max-width:800px;
+text-align:center;
+">
+
+Aluno solicitou fechar o ticket
+
+<br><br>
+
+<a href="/fechar_ticket/{{ticket_id}}">
+
+<button style="background:red;color:white;border:none;padding:10px 15px;border-radius:6px;cursor:pointer">
+
+Fechar Ticket
+
+</button>
+
+</a>
+
+</div>
+
+{% endif %}
+
+<div class="chat-container">
+
+{% for autor,mensagem,data in mensagens %}
+
+<div class="msg {{autor}}">
+
+<b>
+{% if autor == "admin" %}
+Suporte
+{% else %}
+Aluno
+{% endif %}
+</b>
+
+<br>
+
+{{mensagem}}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div id="digitando" class="digitando" style="display:none">
+✏️ alguém está digitando...
+</div>
+
+<form action="/admin_responder_ticket" method="POST" class="chat-input">
+
+<input type="hidden" name="ticket_id" value="{{ticket_id}}">
+
+<input type="text" name="mensagem" placeholder="Responder aluno" required>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+<br>
+
+<div style="text-align:center">
+
+<a href="/admin_tickets">⬅ Voltar</a>
+
+</div>
+
+<script>
+
+const input = document.querySelector("input[name='mensagem']")
+const digitando = document.getElementById("digitando")
+
+let timer
+
+input.addEventListener("input", () => {
+
+digitando.style.display = "block"
+
+clearTimeout(timer)
+
+timer = setTimeout(() => {
+digitando.style.display = "none"
+},2000)
+
+})
+
+const chat = document.querySelector(".chat-container")
+chat.scrollTop = chat.scrollHeight
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Reservas da Semana</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/admin" class="btn-voltar">⬅ Voltar ao painel</a>
+
+<h3>📊 Total reservado por produto</h3>
+
+<div class="resumo-produtos">
+
+{% for item in resumo %}
+
+<div class="resumo-card">
+
+<strong>{{item[0]}}</strong>
+
+<div class="resumo-qtd">
+{{item[1]}} unidades
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<h2>📦 Reservas da Semana</h2>
+
+{% if reservas %}
+
+<table class="tabela-admin">
+
+<tr>
+<th>Aluno</th>
+<th>Turma</th>
+<th>Produto</th>
+<th>Quantidade</th>
+<th>Status</th>
+<th>Ação</th>
+</tr>
+
+{% for r in reservas %}
+
+<tr>
+
+<td>{{r[1]}}</td>
+<td>{{r[2]}}</td>
+<td>{{r[3]}}</td>
+<td>{{r[4]}}</td>
+
+<td>
+
+{% if r[5] == "pendente" %}
+<span class="status pendente">⏳ Pendente</span>
+
+{% elif r[5] == "confirmado" %}
+<span class="status confirmado">✅ Confirmado</span>
+
+{% elif r[5] == "entregue" %}
+<span class="status entregue">📦 Entregue</span>
+{% endif %}
+
+</td>
+
+<td>
+
+{% if r[5] == "pendente" %}
+
+<form action="/confirmar_reserva/{{r[0]}}" method="post">
+<button class="btn-confirmar">Confirmar</button>
+</form>
+
+{% elif r[5] == "confirmado" %}
+
+<form action="/entregar_reserva/{{r[0]}}" method="post">
+<button class="btn-entregar">Marcar entregue</button>
+</form>
+
+{% elif r[5] == "entregue" %}
+
+<form action="/excluir_reserva/{{r[0]}}" method="post">
+<button class="btn-excluir">Excluir</button>
+</form>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>Nenhuma reserva encontrada.</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

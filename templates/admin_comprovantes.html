@@ -1,0 +1,53 @@
+<h2>Painel de Comprovantes</h2>
+
+<a href="/admin" class="botao">⬅ Voltar para o painel</a>
+
+<br><br>
+
+<h2>Painel de Comprovantes</h2>
+
+<table border="1">
+
+<tr>
+<th>Aluno</th>
+<th>Créditos</th>
+<th>Arquivo</th>
+<th>Status</th>
+<th>Ação</th>
+</tr>
+
+{% for c in comprovantes %}
+
+<tr>
+
+<td>{{c[1]}}</td>
+
+<td>{{c[3]}}</td>
+
+<td>
+<a href="/uploads/{{c[2]}}" target="_blank">
+Ver comprovante
+</a>
+</td>
+
+<td>{{c[4]}}</td>
+
+<td>
+
+<form action="/aprovar" method="post" style="display:inline">
+<input type="hidden" name="id" value="{{c[0]}}">
+<button>✔ Aprovar</button>
+</form>
+
+<form action="/recusar" method="post" style="display:inline">
+<input type="hidden" name="id" value="{{c[0]}}">
+<button>❌ Recusar</button>
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

@@ -1,0 +1,1022 @@
+body{
+font-family:Arial, sans-serif;
+margin:0;
+background:#f2f4f8;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+padding-bottom:80px;
+}
+
+.card{
+background:linear-gradient(135deg,#4CAF50,#2e7d32);
+color:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+}
+
+.card h2{
+margin:0;
+}
+
+.creditos{
+font-size:32px;
+margin-top:10px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#4CAF50;
+color:white;
+font-size:16px;
+margin-top:10px;
+}
+
+button:hover{
+background:#43a047;
+}
+
+.history{
+background:white;
+border-radius:10px;
+padding:10px;
+box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+}
+
+.history li{
+padding:8px;
+border-bottom:1px solid #eee;
+}
+
+.navbar{
+position:fixed;
+bottom:0;
+width:100%;
+max-width:500px;
+background:white;
+display:flex;
+justify-content:space-around;
+border-top:1px solid #ddd;
+padding:10px 0;
+}
+
+.navbar a{
+text-decoration:none;
+color:#555;
+font-size:14px;
+}
+
+.navbar a:hover{
+color:#4CAF50;
+}
+
+.menu{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.botao{
+background:#4CAF50;
+color:white;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.botao:hover{
+background:#43a047;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu a{
+background:#4CAF50;
+color:white;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.menu a:hover{
+background:#43a047;
+}
+
+@media (max-width:600px){
+
+.menu{
+flex-direction:column;
+align-items:center;
+}
+
+.menu a{
+width:80%;
+text-align:center;
+}
+
+}
+
+.card{
+background:#4CAF50;
+color:white;
+padding:30px;
+border-radius:15px;
+width:300px;
+margin:auto;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.compra-card{
+background:white;
+padding:30px;
+margin:auto;
+margin-top:50px;
+width:350px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.qr{
+width:220px;
+margin:20px 0;
+}
+
+.botao{
+background:#4CAF50;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.botao:hover{
+background:#43a047;
+}
+
+.pix-input{
+padding:8px;
+width:80%;
+text-align:center;
+}
+
+.conta-card{
+background:white;
+width:350px;
+margin:auto;
+margin-top:60px;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.conta-card h2{
+margin-bottom:20px;
+}
+
+.info{
+background:#f5f5f5;
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.info p{
+margin:8px 0;
+font-size:16px;
+}
+
+.conta-card input{
+width:80%;
+padding:8px;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.botao-voltar{
+display:inline-block;
+margin-top:10px;
+background:#666;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+text-decoration:none;
+}
+
+.botao-voltar:hover{
+background:#444;
+}
+
+.menu-admin{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+}
+
+.menu-admin a{
+background:#4CAF50;
+color:white;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.menu-admin a:hover{
+background:#43a047;
+}
+
+.suporte{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+color:#666;
+}
+
+.suporte a{
+color:#4f46e5;
+text-decoration:none;
+font-weight:bold;
+}
+
+.botao-admin{
+background:#f59e0b;
+color:white;
+padding:8px 14px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-right:10px;
+}
+
+.botao-admin:hover{
+background:#d97706;
+}
+
+.mostrar-senha{
+display:flex;
+align-items:center;
+gap:6px;
+margin-top:8px;
+}
+
+.voltar{
+display:block;
+margin-top:15px;
+background:#555;
+color:white;
+padding:8px;
+border-radius:6px;
+text-decoration:none;
+}
+
+.chat{
+width:500px;
+background:#f1f1f1;
+padding:15px;
+border-radius:10px;
+max-height:400px;
+overflow-y:auto;
+}
+
+.msg{
+padding:10px;
+margin:5px;
+border-radius:10px;
+max-width:70%;
+}
+
+.usuario{
+background:#bfe6d0;
+margin-left:auto;
+text-align:right;
+}
+
+.admin{
+background:#dcdcdc;
+margin-right:auto;
+text-align:left;
+}
+
+.chat{
+width:500px;
+background:#f1f1f1;
+padding:15px;
+border-radius:10px;
+}
+
+.msg{
+padding:10px;
+margin:6px;
+border-radius:10px;
+max-width:70%;
+}
+
+.usuario{
+background:#bfe6d0;
+margin-left:auto;
+text-align:right;
+}
+
+.admin{
+background:#dcdcdc;
+margin-right:auto;
+text-align:left;
+}
+
+.chat{
+max-width:700px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.msg{
+padding:12px;
+margin:10px;
+border-radius:12px;
+max-width:70%;
+font-size:14px;
+}
+
+.msg.aluno{
+background:#d1fae5;
+margin-left:auto;
+text-align:right;
+}
+
+.msg.admin{
+background:#e5e7eb;
+margin-right:auto;
+text-align:left;
+}
+
+.ticket-card{
+background:white;
+padding:20px;
+border-radius:12px;
+margin:15px auto;
+max-width:600px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.ticket-btn{
+background:#4CAF50;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.ticket-btn:hover{
+background:#43a047;
+}
+
+body{
+background:#f2f3f5;
+font-family:Arial;
+}
+
+.chat-container{
+max-width:800px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 25px rgba(0,0,0,0.1);
+height:500px;
+overflow-y:auto;
+}
+
+.msg{
+padding:12px 16px;
+margin:10px;
+border-radius:15px;
+max-width:60%;
+font-size:14px;
+}
+
+.aluno{
+background:#DCF8C6;
+margin-left:auto;
+text-align:right;
+}
+
+.admin{
+background:#e4e6eb;
+margin-right:auto;
+}
+
+.chat-input{
+max-width:800px;
+margin:auto;
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.chat-input input{
+flex:1;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.chat-input button{
+background:#5865F2;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.digitando{
+max-width:800px;
+margin:auto;
+color:#666;
+font-size:14px;
+padding:5px 10px;
+}
+
+button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+min-width:120px;
+}
+
+button:hover{
+background:#43a047;
+}
+
+input{
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+width:100%;
+box-sizing:border-box;
+text-decoration:none;
+}
+
+.chat-input{
+max-width:800px;
+margin:auto;
+display:flex;
+gap:10px;
+}
+
+.chat-input input{
+flex:1;
+}
+
+.chat-input button{
+width:120px;
+}
+
+.tickets-page{
+max-width:900px;
+margin:auto;
+font-family:Arial;
+}
+
+.ticket-card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.ticket-info{
+display:flex;
+gap:15px;
+align-items:center;
+font-size:16px;
+}
+
+.ticket-id{
+color:#555;
+}
+
+.status{
+padding:4px 10px;
+border-radius:6px;
+font-size:12px;
+}
+
+.status.aberto{
+background:#d1fae5;
+color:#065f46;
+}
+
+.status.fechado{
+background:#fee2e2;
+color:#7f1d1d;
+}
+
+.ticket-actions{
+display:flex;
+gap:10px;
+}
+
+.btn-abrir{
+background:#3b82f6;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.btn-fechar{
+background:#ef4444;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.voltar{
+display:inline-block;
+margin-bottom:10px;
+color:#ffffff;
+text-decoration:none;
+}
+
+.suporte-page{
+max-width:900px;
+margin:auto;
+font-family:Arial;
+}
+
+.ticket-abrir{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.ticket-abrir input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.ticket-abrir button{
+width:100%;
+background:#4CAF50;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.ticket{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.ticket button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.mostrar-senha{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.mostrar-senha input{
+    width:16px;
+    height:16px;
+}
+
+.voltar-registro{
+    margin-top:15px;
+    text-align:center;
+}
+
+.voltar-registro a{
+    text-decoration:none;
+    color:#4b3fd4;
+    font-weight:500;
+}
+
+.voltar-registro a:hover{
+    text-decoration:underline;
+}
+
+.suporte-link{
+    margin-top:10px;
+    text-align:center;
+}
+
+.suporte-link a{
+    text-decoration:none;
+    color:#4b3fd4;
+    font-size:14px;
+}
+
+.suporte-link a:hover{
+    text-decoration:underline;
+}
+
+.dashboard-extra{
+display:flex;
+gap:40px;
+margin-top:40px;
+justify-content:center;
+}
+
+/* RESPONSIVO PARA CELULAR */
+
+@media (max-width: 768px){
+
+.dashboard-extra{
+grid-template-columns:1fr;
+}
+
+.reserva-card{
+flex-direction:column;
+align-items:flex-start;
+gap:5px;
+}
+
+.btn-suporte{
+width:100%;
+text-align:center;
+}
+
+.reservas-box,
+.suporte-box{
+padding:18px;
+}
+
+}
+
+.suporte-box,
+.reservas-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+width:300px;
+text-align:center;
+}
+
+.btn-suporte{
+background:#4CAF50;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
+
+.btn-reservar{
+background:#2196F3;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
+
+.produtos{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.produto-card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+width:200px;
+text-align:center;
+}
+
+.produto-card button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.admin-produtos{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+width:400px;
+margin:auto;
+text-align:center;
+}
+
+.admin-produtos input{
+width:80%;
+padding:8px;
+margin:8px;
+}
+
+.admin-produtos button{
+background:#2196F3;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.reservas-container{
+margin-top:15px;
+}
+
+.reserva-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+padding:12px;
+margin-bottom:10px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.reserva-info{
+font-size:15px;
+}
+
+.status{
+padding:6px 10px;
+border-radius:6px;
+font-size:13px;
+font-weight:bold;
+}
+
+.status.pendente{
+background:#ffeaa7;
+color:#b7791f;
+}
+
+.status.confirmado{
+background:#c8f7c5;
+color:#1e7e34;
+}
+
+.status.entregue{
+background:#dfe6e9;
+color:#2d3436;
+}
+
+.tabela-admin{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.tabela-admin th{
+background:#2c3e50;
+color:white;
+padding:12px;
+}
+
+.tabela-admin td{
+padding:12px;
+border-bottom:1px solid #eee;
+text-align:center;
+}
+
+.tabela-admin tr:hover{
+background:#f7f7f7;
+}
+
+.status{
+padding:5px 10px;
+border-radius:6px;
+font-size:13px;
+font-weight:bold;
+}
+
+.status.pendente{
+background:#ffeaa7;
+color:#b7791f;
+}
+
+.status.confirmado{
+background:#c8f7c5;
+color:#1e7e34;
+}
+
+.status.entregue{
+background:#dfe6e9;
+color:#2d3436;
+}
+
+button{
+border:none;
+padding:7px 12px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn-confirmar{
+background:#2ecc71;
+color:white;
+}
+
+.btn-entregar{
+background:#3498db;
+color:white;
+}
+
+.btn-excluir{
+background:#e74c3c;
+color:white;
+}
+
+.btn-voltar{
+display:inline-block;
+margin-bottom:15px;
+background:#444;
+color:white;
+padding:8px 14px;
+border-radius:6px;
+text-decoration:none;
+}
+
+.titulo{
+text-align:center;
+margin-bottom:30px;
+font-size:28px;
+}
+
+.produtos-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.produto-card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.2s;
+}
+
+.produto-card:hover{
+transform:scale(1.03);
+}
+
+.preco{
+font-size:20px;
+color:#27ae60;
+font-weight:bold;
+margin:10px 0;
+}
+
+.input-qtd{
+width:60px;
+padding:6px;
+margin-right:10px;
+border-radius:6px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+.btn-reservar{
+background:#3498db;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.btn-reservar:hover{
+background:#2980b9;
+}
+
+.resumo-produtos{
+display:flex;
+gap:15px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.resumo-card{
+background:white;
+padding:15px 20px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.resumo-qtd{
+font-size:18px;
+color:#3498db;
+font-weight:bold;
+}
+
+@media (max-width: 768px){
+
+.history{
+padding:18px;
+}
+
+.history li{
+font-size:14px;
+}
+
+}
+
+@media (max-width: 768px){
+
+.reserva-card{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.reserva-info{
+font-size:15px;
+}
+
+.status{
+font-size:13px;
+}
+
+}
+
+@media (max-width:768px){
+
+button{
+padding:12px;
+font-size:15px;
+}
+
+}

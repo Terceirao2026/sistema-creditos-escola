@@ -1,0 +1,33 @@
+<h2>Painel de Comprovantes</h2>
+
+<a href="/admin" class="botao">⬅ Voltar para o painel</a>
+
+<br><br><br>
+
+<table border="1">
+
+<tr>
+<th>Aluno</th>
+<th>Arquivo</th>
+<th>Data</th>
+</tr>
+
+{% for comprovante in comprovantes %}
+
+<tr>
+
+<td>{{comprovante[1]}}</td>
+
+<td>
+<a href="/uploads/{{comprovante[2]}}" target="_blank">
+Ver comprovante
+</a>
+</td>
+
+<td>{{comprovante[3]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro</title>
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f6fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:320px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#4f46e5;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#4338ca;
+}
+
+a{
+    display:block;
+    text-align:center;
+    margin-top:10px;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.mostrar-senha{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.mostrar-senha input{
+    width:16px;
+    height:16px;
+}
+
+.suporte-link{
+    margin-top:10px;
+    text-align:center;
+}
+
+.suporte-link a{
+    text-decoration:none;
+    color:#4b3fd4;
+    font-size:14px;
+}
+
+.suporte-link a:hover{
+    text-decoration:underline;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Criar Conta</h2>
+{% if erro %}
+<p style="color:red; text-align:center;">{{erro}}</p>
+{% endif %}
+
+<form method="POST">
+
+<input type="text" name="nome" placeholder="Nome completo" required>
+
+<label>Turma:</label>
+
+<select name="turma" required>
+<option value="">Selecione sua turma</option>
+<option>6A</option>
+<option>6B</option>
+<option>6C</option>
+<option>7A</option>
+<option>7B</option>
+<option>8A</option>
+<option>8B</option>
+<option>9A</option>
+<option>9B</option>
+<option>1 Serie</option>
+<option>2 Serie</option>
+</select>
+
+<label>Senha</label>
+<input type="password" name="senha" id="senha" placeholder="Senha" required>
+
+<div class="mostrar-senha">
+    <input type="checkbox" id="verSenha" onclick="mostrarSenha()">
+    <label for="verSenha">Mostrar senha</label>
+</div>
+
+<button type="submit">Cadastrar</button>
+
+</form>
+
+<a href="/login">Já tenho conta</a>
+
+<br>
+
+<div class="suporte-link">
+    <a href="/suporte_publico">Precisa de ajuda?</a>
+</div>
+
+<script>
+function mostrarSenha() {
+    var x = document.getElementById("senha");
+
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>

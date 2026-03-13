@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Tickets Públicos</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6fb;
+padding:30px;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+.ticket{
+background:white;
+border-radius:10px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+button{
+background:#6366f1;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#4f46e5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🎫 Tickets Públicos</h2>
+
+{% for t in tickets %}
+
+<div class="ticket">
+
+<p><b>ID:</b> {{t[0]}}</p>
+<p><b>Nome:</b> {{t[1]}}</p>
+<p><b>Status:</b> {{t[2]}}</p>
+
+<a href="/admin_ticket/{{t[0]}}">
+<button>Abrir chat</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+<script>
+
+setInterval(function(){
+
+fetch("/admin_ticket/{{ticket_id}}")
+.then(r => r.text())
+.then(html => {
+
+let parser = new DOMParser()
+let doc = parser.parseFromString(html,"text/html")
+
+let nova = doc.querySelector(".chat-mensagens").innerHTML
+
+document.querySelector(".chat-mensagens").innerHTML = nova
+
+})
+
+},2000)
+
+</script>
+
+</body>
+</html>

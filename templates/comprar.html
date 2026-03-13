@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Comprar Créditos</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="compra-card">
+
+<h2>💳 Comprar Créditos</h2>
+
+<p>Envie o pagamento via Pix</p>
+
+<img src="/static/qrcode.png" class="qr">
+
+<p><b>Chave Pix:</b></p>
+
+<input type="text" value="SEU-PIX-AQUI" id="pix" class="pix-input" readonly>
+
+<br><br>
+
+<button class="botao" onclick="copiar()">📋 Copiar Chave</button>
+
+<hr>
+
+<h3>Enviar Comprovante</h3>
+
+<form action="/enviar_comprovante" method="post" enctype="multipart/form-data">
+
+<h3>Quantos créditos você quer comprar?</h3>
+
+<input type="number" name="creditos" step="0.01" required>
+
+<br><br>
+
+<input type="file" name="comprovante" required>
+
+<br><br>
+
+<button class="botao">Enviar</button>
+
+<br><br>
+
+<a href="/dashboard" class="voltar">⬅ Voltar para o painel</a>
+
+</form>
+
+</div>
+
+<script>
+
+function copiar(){
+
+let copyText = document.getElementById("pix")
+
+copyText.select()
+
+document.execCommand("copy")
+
+alert("Chave Pix copiada!")
+
+}
+
+</script>
+
+<div class="suporte">
+Se encontrou algum erro? 
+<a href="/suporte">Entrar em contato com o suporte</a>
+</div>
+
+<br>
+
+</body>
+</html>

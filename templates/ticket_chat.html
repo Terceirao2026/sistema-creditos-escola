@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Ticket</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h2 style="text-align:center">🎫 Ticket {{ticket_id}}</h2>
+
+
+<div class="chat-container" id="chat">
+
+{% for autor,mensagem,data in mensagens %}
+
+<div class="msg {{autor}}">
+
+<b>
+{% if autor == "admin" %}
+Suporte
+{% else %}
+Aluno
+{% endif %}
+</b>
+
+<br>
+
+{{mensagem}}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div id="digitando" class="digitando" style="display:none">
+✏️ alguém está digitando...
+</div>
+
+{% if admin %}
+<form action="/admin_responder_ticket" method="POST" class="chat-input" onsubmit="sumirDigitando()">
+{% else %}
+<form action="/responder_ticket" method="POST" class="chat-input" onsubmit="sumirDigitando()">
+{% endif %}
+
+<input type="hidden" name="ticket_id" value="{{ticket_id}}">
+
+<input type="text" name="mensagem" placeholder="Digite sua mensagem">
+
+<button type="submit">Enviar</button>
+
+</form>
+
+<br>
+
+<div style="text-align:center">
+
+{% if admin %}
+<a href="/admin_tickets">⬅ Voltar</a>
+{% else %}
+<a href="/suporte">⬅ Voltar</a>
+{% endif %}
+
+</div>
+
+<script>
+
+const input = document.querySelector("input[name='mensagem']")
+const digitando = document.getElementById("digitando")
+
+let timer
+
+input.addEventListener("input", () => {
+
+digitando.style.display = "block"
+
+clearTimeout(timer)
+
+timer = setTimeout(() => {
+digitando.style.display = "none"
+},2000)
+
+})
+
+function sumirDigitando(){
+document.getElementById("digitando").style.display="none"
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Entrar</h1>
+
+<form method="POST">
+
+<label>Nome</label>
+<input type="text" name="nome" required>
+
+<label>Senha</label>
+<input id="senha" type="password" name="senha" required>
+
+<div class="mostrar-senha">
+    <input type="checkbox" id="verSenha" onclick="mostrarSenha()">
+    <label for="verSenha">Mostrar senha</label>
+</div>
+
+<button type="submit">Entrar</button>
+<div class="voltar-registro">
+    <a href="/register">Não tem conta? Cadastre-se</a>
+</div>
+
+</form>
+
+<div class="suporte-link">
+    <a href="/suporte_publico">Precisa de ajuda?</a>
+</div>
+
+</form>
+
+</div>
+
+<script>
+function mostrarSenha() {
+    var x = document.getElementById("senha");
+
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
+</body>

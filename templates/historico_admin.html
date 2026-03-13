@@ -1,0 +1,25 @@
+<h2>Histórico do Usuário</h2>
+
+<a href="/admin">⬅ Voltar</a>
+
+<br><br><br>
+
+<table border="1">
+
+<tr>
+<th>Valor</th>
+<th>Motivo</th>
+<th>Data</th>
+</tr>
+
+{% for h in historico %}
+
+<tr>
+<td>{{h[0]}}</td>
+<td>{{h[1]}}</td>
+<td>{{h[2]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>

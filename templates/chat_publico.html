@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>Chat Suporte</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6fb;
+display:flex;
+flex-direction:column;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.chat-box{
+width:500px;
+background:white;
+margin-top:40px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+display:flex;
+flex-direction:column;
+overflow:hidden;
+}
+
+.chat-header{
+background:#6366f1;
+color:white;
+padding:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+.chat-mensagens{
+padding:15px;
+height:400px;
+overflow-y:auto;
+}
+
+.msg{
+padding:10px 14px;
+border-radius:10px;
+margin-bottom:10px;
+max-width:70%;
+}
+
+.visitante{
+background:#e5e7eb;
+}
+
+.admin{
+background:#6366f1;
+color:white;
+margin-left:auto;
+}
+
+form{
+display:flex;
+border-top:1px solid #eee;
+}
+
+input{
+flex:1;
+border:none;
+padding:12px;
+font-size:14px;
+}
+
+button{
+background:#6366f1;
+color:white;
+border:none;
+padding:12px 18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#4f46e5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="chat-box">
+
+<div class="chat-header">
+💬 Chat com suporte
+</div>
+
+<div class="chat-mensagens">
+
+{% for m in mensagens %}
+
+<div class="msg {{m[0]}}">
+<b>{{m[0]}}:</b> {{m[1]}}
+</div>
+
+{% endfor %}
+
+</div>
+
+<form method="POST" action="/enviar_publico">
+
+<input type="hidden" name="ticket_id" value="{{ticket_id}}">
+
+<input type="text" name="mensagem" placeholder="Digite sua mensagem..." required>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+</div>
+
+<script>
+
+setInterval(function(){
+
+fetch("/chat_publico/{{ticket_id}}")
+.then(r => r.text())
+.then(html => {
+
+let parser = new DOMParser()
+let doc = parser.parseFromString(html,"text/html")
+
+let nova = doc.querySelector(".chat-mensagens").innerHTML
+
+document.querySelector(".chat-mensagens").innerHTML = nova
+
+})
+
+},2000)
+
+</script>
+
+</body>
+</html>

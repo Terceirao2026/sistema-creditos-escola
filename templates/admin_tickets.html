@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Tickets de Suporte</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="tickets-page">
+
+<h2>🎫 Tickets de Suporte</h2>
+
+<a href="/admin" class="voltar">⬅ Voltar</a>
+
+<a href="/limpar_tickets_fechados"
+onclick="return confirm('Tem certeza que deseja apagar todos os tickets fechados?')">
+
+<button style="
+background:#ef4444;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:15px;
+">
+
+🧹 Limpar tickets fechados
+
+</button>
+
+</a>
+
+<hr>
+
+{% for id,nome,status in tickets %}
+
+<div class="ticket-card">
+
+<div class="ticket-info">
+
+<strong>{{nome}}</strong>
+
+<span class="ticket-id">Ticket #{{id}}</span>
+
+<span class="status {{status}}">{{status}}</span>
+
+</div>
+
+<div class="ticket-actions">
+
+<a href="/admin_ticket/{{id}}">
+
+<button class="btn-abrir">Abrir</button>
+
+
+</a>
+
+</a>
+
+<a href="/fechar_ticket/{{id}}">
+
+<button class="btn-fechar">Fechar</button>
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

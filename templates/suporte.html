@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Suporte</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="suporte-page">
+
+<div class="ticket-abrir">
+
+<h3>Abrir Ticket</h3>
+
+<form action="/abrir_ticket" method="POST">
+
+<input type="text" name="mensagem" placeholder="Descreva seu problema">
+
+<button type="submit">Abrir Ticket</button>
+
+</form>
+
+</div>
+
+{% for id,status,data in tickets %}
+
+<div class="ticket">
+
+<div>
+
+<strong>Ticket #{{id}}</strong>
+
+<br>
+
+Status: {{status}}
+
+</div>
+
+<a href="/ticket/{{id}}">
+
+<button class="abrir">Abrir Conversa</button>
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

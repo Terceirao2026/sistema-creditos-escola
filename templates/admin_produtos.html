@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Produtos da Semana</title>
+
+</head>
+
+<body>
+
+<div class="admin-produtos">
+
+<h2>📦 Criar Produto da Semana</h2>
+
+<a href="/admin">
+<button style="margin-bottom:15px;">⬅ Voltar ao painel</button>
+</a>
+
+<form method="POST" action="/adicionar_produto">
+
+<input type="text" name="nome" placeholder="Nome do produto" required>
+
+<input type="number" step="0.01" name="preco" placeholder="Preço (ex: 3.50)" required>
+
+<button type="submit">Adicionar Produto</button>
+
+</form>
+
+</div>
+
+</form>
+
+<hr>
+
+<h3>Lista de Produtos</h3>
+
+<table border="1">
+
+<tr>
+<th>Produto</th>
+<th>Preço</th>
+<th>Status</th>
+<th>Ação</th>
+</tr>
+
+{% for p in produtos %}
+
+<tr>
+
+<td>{{p[1]}}</td>
+
+<td>{{p[2]}} créditos</td>
+
+<td>
+
+{% if p[3] == 1 %}
+
+Ativo
+
+{% else %}
+
+Inativo
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if p[3] == 1 %}
+
+<a href="/desativar_produto/{{p[0]}}">Desativar</a>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Minha Conta</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="conta-card">
+
+<h2>👤 Minha Conta</h2>
+
+<div class="info">
+
+<p><b>Nome:</b> {{usuario.nome}}</p>
+
+<h3>✏ Alterar nome</h3>
+
+<form action="/alterar_nome" method="POST">
+
+<input type="text" name="novo_nome" placeholder="Digite seu novo nome">
+
+<button>Salvar alteração</button>
+
+</form>
+<br>
+
+<p><b>Turma:</b> {{usuario.turma}}</p>
+<p><b>Créditos:</b> {{usuario.creditos}}</p>
+
+</div>
+
+<hr>
+
+<h3>🔑 Alterar Senha</h3>
+
+<form action="/mudar_senha" method="POST">
+    
+<input type="password" name="senha_atual" placeholder="Senha atual" required>
+
+<input type="password" name="nova_senha" placeholder="Nova senha" required>
+
+<br><br>
+
+<button class="botao">Alterar Senha</button>
+
+</form>
+
+<br>
+
+<a href="/dashboard" class="botao-voltar">⬅ Voltar</a>
+
+</div>
+
+</body>
+</html>
+
+<div class="suporte">
+Se encontrou algum erro? 
+<a href="/suporte">Entrar em contato com o suporte</a>
+</div>
