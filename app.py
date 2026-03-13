@@ -16,7 +16,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route("/")
 def home():
-    return "Site funcionando!"
+    return "register.html"
 
 
 @app.route("/register", methods=["GET","POST"])
