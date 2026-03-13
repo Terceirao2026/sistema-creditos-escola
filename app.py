@@ -16,7 +16,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route("/")
 def home():
-    return "/register.html"
+    return render_template("register.html")
 
 
 @app.route("/register", methods=["GET","POST"])
